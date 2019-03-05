@@ -29,6 +29,17 @@ And add the style to you Android Manifest in your application tag :
 ```
 android:theme="@style/AppTheme"
 ```
+And Change this for Env Production or SandBox
+@android/build.gradle
+```
+dependencies {
+    // For Production
+    compile 'com.midtrans:uikit:1.15.0'
+    // For SandBox
+    compile 'com.midtrans:uikit:1.15.0-SANDBOX'
+}
+```
+
 ## IOS
 No specific setup required
 
@@ -39,7 +50,7 @@ import 'package:flutrans/flutrans.dart';
 final flutrans = Flutrans();
 
 //Init the client ID you URL base
-flutrans.init("YOUR_CLIENT_ID", "YOUR_URL_BASE");
+flutrans.init("YOUR_CLIENT_ID", "YOUR_URL_BASE", productionMode ? (true/false)));
 
 //Setup the callback when payment finished
 flutrans.setFinishCallback((finished) {
